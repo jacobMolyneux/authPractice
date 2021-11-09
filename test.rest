@@ -1,2 +1,6 @@
 ### get login page
 GET http://localhost:3000/auth/Login
+
+### make sign up post method
+POST http://localhost:3000/auth/signUp
+Content-Type: application/json

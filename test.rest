@@ -1,0 +1,2 @@
+### get login page
+GET http://localhost:3000/auth/Login

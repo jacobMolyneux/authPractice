@@ -1,30 +1,29 @@
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import { useState } from "react";
 
-const LogInPage = () => {
-  let [password, setPassword] = useState("");
+const SignUpPage = () => {
   let [username, setUsername] = useState("");
-
-  const handlePasswordChange = (event) => {
-    event.preventDefault();
-    setPassword((password = event.target.value));
+  let [password, setPassword] = useState("");
+  const handlePasswordChange = (e) => {
+    e.preventDefault();
+    setPassword((password = e.target.value));
   };
-  const handleUsernameChange = (event) => {
-    event.preventDefault();
-    setUsername((username = event.target.value));
+  const handleUsernameChange = (e) => {
+    e.preventDefault();
+    setUsername((username = e.target.value));
   };
-  const handleSubmission = () => {
-    console.log(`Form Submitted`);
-    console.log(`the password is: ${password}`);
+  const LogIn = () => {
+    console.log(`Log In Succesful!`);
     console.log(`the username is: ${username}`);
+    console.log(`the password is: ${password}`);
   };
 
   return (
-    <Container className="border shadow">
-      <Form className="m-3">
-        <h1 className="border-bottom">Log In</h1>
+    <Container>
+      <Form className="border p-3 shadow">
+        <h1 className="border-bottom">Sign Up</h1>
         <Form.Group>
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -34,19 +33,19 @@ const LogInPage = () => {
           ></Form.Control>
         </Form.Group>
         <Form.Group>
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Username</Form.Label>
           <Form.Control
             type="password"
             placeholder="Enter Password"
             onChange={handlePasswordChange}
           ></Form.Control>
         </Form.Group>
-        <Button className="mt-3" onClick={handleSubmission}>
-          Log In
+        <Button onClick={LogIn} className="m-3">
+          Sign Up
         </Button>
       </Form>
     </Container>
   );
 };
 
-export { LogInPage };
+export { SignUpPage };

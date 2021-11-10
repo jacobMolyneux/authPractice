@@ -2,6 +2,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import { useState } from "react";
+import axios from "axios";
 
 const LogInPage = () => {
   let [password, setPassword] = useState("");
@@ -15,7 +16,12 @@ const LogInPage = () => {
     event.preventDefault();
     setUsername((username = event.target.value));
   };
-  const handleSubmission = () => {
+  const handleSubmission = async () => {
+    const response = await axios.post("http://localhost:8000/auth/login", {
+      username: username,
+      password: password,
+    });
+    console.log(response);
     console.log(`Form Submitted`);
     console.log(`the password is: ${password}`);
     console.log(`the username is: ${username}`);

@@ -2,6 +2,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import { useState } from "react";
+import axios from "axios";
 
 const SignUpPage = () => {
   let [username, setUsername] = useState("");
@@ -14,7 +15,13 @@ const SignUpPage = () => {
     e.preventDefault();
     setUsername((username = e.target.value));
   };
-  const LogIn = () => {
+  const LogIn = async () => {
+    const response = await axios.post("http://localhost:8000/auth/signUp", {
+      username: username,
+      password: password,
+    });
+    console.log(response);
+    console.log(response);
     console.log(`Log In Succesful!`);
     console.log(`the username is: ${username}`);
     console.log(`the password is: ${password}`);

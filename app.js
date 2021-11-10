@@ -7,12 +7,14 @@ var mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const cors = require("cors");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var authRouter = require("./routes/auth");
 
 var app = express();
+app.use(cors());
 
 var mongoDB =
   "mongodb+srv://jacob:Pigpen123@cluster0.8tzoa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
